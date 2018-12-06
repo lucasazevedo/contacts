@@ -20,8 +20,8 @@ class ContactController extends Controller
     public function store() {
         $this->validate(request(), [
             'name' => 'required|min:5',
-            'contact' => 'required|size:9|unique:contacts,contact',
-            'email' => 'required|email|unique:contacts,email'
+            'contact' => 'required|size:9|unique:contacts,contact,NULL,id,deleted_at,NULL',
+            'email' => 'required|email|unique:contacts,email,NULL,id,deleted_at,NULL'
         ]);
 
     	Contact::create(request(['name', 'contact', 'email']));
@@ -40,8 +40,11 @@ class ContactController extends Controller
     public function update(Contact $contact) {
     	$contact = Contact::find($contact->id);
 
-        $contactValidation = ($contact->contact == request('contact')) ? 'required|size:9' : 'required|size:9|unique:contacts,contact';
-        $emailValidation = ($contact->email == request('email')) ? 'required|email' : 'required|email|unique:contacts,email';
+        $contactValidation = ($contact->contact == request('contact')) ? 
+            'required|size:9' : 'required|size:9|unique:contacts,contact,NULL,id,deleted_at,NULL';
+
+        $emailValidation = ($contact->email == request('email')) ? 
+            'required|email' : 'required|email|unique:contacts,email,NULL,id,deleted_at,NULL';
 
         $this->validate(request(), [
             'name' => 'required|min:5',
