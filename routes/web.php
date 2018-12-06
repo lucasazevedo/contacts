@@ -15,6 +15,9 @@ Auth::routes();
 
 Route::get('/', 'ContactController@index');
 Route::get('/contact/create', 'ContactController@create');
+Route::get('/contact/{contact}', 'ContactController@show');
+Route::get('/contact/edit/{contact}', 'ContactController@edit');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('/contact/store', 'ContactController@store');
+Route::post('/contact/update/{contact}', 'ContactController@update');

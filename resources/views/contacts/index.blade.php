@@ -5,14 +5,16 @@
   	<table>
 	  <tr>
 	    <th>Name</th>
-	    <th>Contact</th>
-	    <th>Email</th>
+	    <th>Details</th>
+	    <th>Edit</th>
+	    <!--<th>Delete</th>-->
 	  </tr>
 	  @foreach($contacts as $contact)
 	  	<tr>
 	  		<td>{{ $contact->name }}</td>
-	  		<td>{{ $contact->contact }}</td>
-	  		<td>{{ $contact->email }}</td>
+	  		<td><a href="/contact/{{ $contact->id }}">Details</a></td>
+	  		<td><a href="/contact/edit/{{ $contact->id }}">Edit</a></td>
+	  		<!--<td>N/A</td>-->
 	  	</tr>
 	  @endforeach
 	</table>
