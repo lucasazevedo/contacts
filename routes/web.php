@@ -18,6 +18,7 @@ Route::get('/contact/create', 'ContactController@create');
 Route::get('/contact/{contact}', 'ContactController@show');
 Route::get('/contact/edit/{contact}', 'ContactController@edit');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/contact/delete/{contact}', 'ContactController@delete');
 
 Route::post('/contact/store', 'ContactController@store');
 Route::post('/contact/update/{contact}', 'ContactController@update');

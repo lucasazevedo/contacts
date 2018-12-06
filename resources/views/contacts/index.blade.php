@@ -7,14 +7,14 @@
 	    <th>Name</th>
 	    <th>Details</th>
 	    <th>Edit</th>
-	    <!--<th>Delete</th>-->
+	    <th>Delete</th>
 	  </tr>
 	  @foreach($contacts as $contact)
 	  	<tr>
 	  		<td>{{ $contact->name }}</td>
 	  		<td><a href="/contact/{{ $contact->id }}">Details</a></td>
 	  		<td><a href="/contact/edit/{{ $contact->id }}">Edit</a></td>
-	  		<!--<td>N/A</td>-->
+	  		<td><a href="/contact/delete/{{ $contact->id }}">Delete</a></td>
 	  	</tr>
 	  @endforeach
 	</table>

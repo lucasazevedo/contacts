@@ -19,6 +19,7 @@
 		<br>
 		<div class="form-group">
 			<a class="btn btn-warning" href="/contact/edit/{{ $contact->id }}" role="button">Edit</a>
+			<a class="btn btn-danger" href="/contact/delete/{{ $contact->id }}" role="button">Delete</a>
 		</div>
 	</div>
 @endsection
