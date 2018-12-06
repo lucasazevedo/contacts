@@ -12,4 +12,20 @@ class ContactController extends Controller
 
     	return view('contacts.index', compact('contacts'));
     }
+
+    public function create() {
+    	return view('contacts.create');
+    }
+
+    public function store() {
+        $this->validate(request(), [
+            'name' => 'required|min:5',
+            'contact' => 'required|size:9',
+            'email' => 'required|email'
+        ]);
+
+    	Contact::create(request(['name', 'contact', 'email']));
+
+    	return redirect('/');
+    }
 }
