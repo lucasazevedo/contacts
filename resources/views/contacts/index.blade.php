@@ -2,6 +2,8 @@
 
 @section('content')
   <div class='container'>
+  	<h1>Contacts</h1>
+	<hr>
   	<table>
 	  <tr>
 	    <th>Name</th>

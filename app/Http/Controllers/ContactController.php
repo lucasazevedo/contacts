@@ -20,7 +20,7 @@ class ContactController extends Controller
     public function store() {
         $this->validate(request(), [
             'name' => 'required|min:5',
-            'contact' => 'required|size:9|unique:contacts,contact,NULL,id,deleted_at,NULL',
+            'contact' => 'required|digits:9|numeric|unique:contacts,contact,NULL,id,deleted_at,NULL',
             'email' => 'required|email|unique:contacts,email,NULL,id,deleted_at,NULL'
         ]);
 
@@ -41,7 +41,7 @@ class ContactController extends Controller
     	$contact = Contact::find($contact->id);
 
         $contactValidation = ($contact->contact == request('contact')) ? 
-            'required|size:9' : 'required|size:9|unique:contacts,contact,NULL,id,deleted_at,NULL';
+            'required|digits:9|numeric' : 'required|digits:9|numeric|unique:contacts,contact,NULL,id,deleted_at,NULL';
 
         $emailValidation = ($contact->email == request('email')) ? 
             'required|email' : 'required|email|unique:contacts,email,NULL,id,deleted_at,NULL';
